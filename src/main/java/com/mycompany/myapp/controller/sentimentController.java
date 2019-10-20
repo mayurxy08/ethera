@@ -127,7 +127,7 @@ public class sentimentController {
 
         StreamSpeechRecognizer recognizer = new StreamSpeechRecognizer(
             configuration);
-        InputStream stream = new FileInputStream(new File("./test.wav"));
+        InputStream stream = new ClassPathResource("/test.wav").getInputStream();
         stream.skip(44);
 
         // Simple recognition with generic model

@@ -4,6 +4,7 @@ import edu.cmu.sphinx.api.Configuration;
 import edu.cmu.sphinx.api.SpeechResult;
 import edu.cmu.sphinx.api.StreamSpeechRecognizer;
 import model.SentimentResult;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -24,7 +25,7 @@ public class AnalyzeSentimentService {
 
         StreamSpeechRecognizer recognizer = new StreamSpeechRecognizer(
             configuration);
-        InputStream stream = new FileInputStream(new File("./test.wav"));
+        InputStream stream = new ClassPathResource("/test.wav").getInputStream();
         stream.skip(44);
 
         // Simple recognition with generic model
